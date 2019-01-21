@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="drd-aprova-valores" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="aprova-valores-tabela" name="Aprova valores">
+    <extensionElements>
+      <biodi:bounds x="150" y="150" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable_1">
+      <input id="input_1">
+        <inputExpression id="inputExpression_1" typeRef="long">
+          <text>valor</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" name="isAprovado" typeRef="boolean" />
+      <output id="OutputClause_1lpbkiw" name="mensagem" typeRef="string" />
+      <rule id="DecisionRule_1ko1vu5">
+        <description></description>
+        <inputEntry id="UnaryTests_09b9n57">
+          <text>&lt;=100</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ga8jv2">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1q75fp5">
+          <text>"Sua verba foi aprovada"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qlr99d">
+        <description></description>
+        <inputEntry id="UnaryTests_1wzg5l0">
+          <text>&gt;100</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02q2f6g">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1pztu9r">
+          <text>"Ah, mas que pena, sua verba foi negada!"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
